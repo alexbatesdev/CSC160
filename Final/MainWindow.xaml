@@ -1,0 +1,123 @@
+﻿<Window x:Class="Final.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Final"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:userControl="clr-namespace:Final.UserControls"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="450" 
+        Width="800" 
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <SolidColorBrush x:Key="LoremForeGround" Color="Black" />
+        <FontFamily x:Key="LoremFontFamily">Calibri</FontFamily>
+        <sys:Double x:Key="LoremFontSize">10</sys:Double>
+        <sys:String x:Key="LoremText">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat interdum elit. Vestibulum dapibus eleifend ex nec egestas. Morbi fermentum iaculis diam, id semper sem laoreet non. Ut a eleifend neque. Donec id aliquam turpis, et porta nulla. Proin lacinia nisi eu ligula ultricies, non finibus ante egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam magna tortor, aliquam ut neque eu, tempus rutrum sapien. Ut eget velit mollis, lobortis sapien in, tempus turpis. Maecenas lacinia auctor malesuada. Suspendisse porta tellus consequat, euismod turpis vel, eleifend tellus. Maecenas sed tellus ut urna rhoncus gravida. Sed nisl arcu, aliquam eu ultrices eu, sollicitudin ut nulla.
+        </sys:String>
+        <ImageSource x:Key="PokemonImage">./resources/1.png</ImageSource>
+    </Window.Resources>
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <Button Content="Style" Width="50" Margin="5" Click="Button_Style_Click"/>
+            <Button Content="EXT" Width="50" Margin="5" Click="Button_EXT_Click"/>
+            <Button Content="DB" Width="50" Margin="5" Click="Button_DB_Click"/>
+            <Button Content="POK" Width="50" Margin="5" Click="Button_POK_Click"/>
+        </StackPanel>
+        <TextBlock
+            Name="lorem"
+            FontFamily="{DynamicResource LoremFontFamily}"
+            FontSize="{DynamicResource LoremFontSize}"
+            Grid.Row="0"
+            Grid.Column="1"
+            TextWrapping="Wrap"
+            Foreground="{DynamicResource LoremForeGround}"
+            Text="{DynamicResource LoremText}"
+        />
+        <DataGrid 
+            x:Name="DataGrid" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Margin="10"
+            Grid.Column="2"
+            Grid.Row="0"
+            Width="250"
+            Height="125"
+        />
+        <StackPanel
+            Grid.Column="0"
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+        >
+            <TextBox Name="BindingBox" Width="250" Height="70" Text="In japan you could call this tag Mother, because it's earthBOUND ahahaha!" TextWrapping="Wrap"/>
+            <TextBlock 
+                Name="BindingText"
+                Text="{Binding ElementName=BindingBox, Path=Text}"
+                Width="250" Height="70" TextWrapping="Wrap"
+            />
+        </StackPanel>
+        <userControl:EmailValidator
+            Grid.Column="1"
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+        />
+        <Image
+            Grid.Column="2"
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Source="{DynamicResource PokemonImage}"
+        />
+        <StackPanel
+            Orientation="Vertical"
+            Grid.Row="2"
+            Grid.Column="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+        >
+            <TextBlock
+                Name="StringBuildMe"
+                Text="String Build Me! Press The Button!"
+                Margin="10"
+            />
+            <Button
+                Name="StringBuildButton"
+                Content="Build"
+                Click="StringBuildButton_Click"
+            />
+            
+        </StackPanel>
+        <Button
+            Name="GenericsButton"
+            Content="Generics"
+            Grid.Column="1"
+            Grid.Row="2"
+            Width="100"
+            Height="25"
+            Click="GenericsButton_Click"
+        />
+        <Button
+            x:Name="Fork"
+            Content="Don't Click"
+            Grid.Column="2"
+            Grid.Row="2"
+            Click="Fork_Click"
+        />
+
+    </Grid>
+</Window>

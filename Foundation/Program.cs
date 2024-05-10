@@ -1,4 +1,5 @@
-﻿namespace Foundation
+﻿using ConsoleLibrary;
+namespace Foundation
 {
     internal class Program
     {
@@ -11,7 +12,19 @@
             //ValueReference.Execute();
             //Parameters.Execute();
             //Arrays.Execute();
-            Debug.Execute();
+            //Debug.Execute();
+            //IO.Print("THUD");
+            //IO.Ticket("VALUE");
+            //IO.GetConsoleInt("Enter a number", 1, 10);
+            //IO.GetConsoleFloat("Enter a number", 1, 10);
+            //IO.GetConsoleBool("Enter a value");
+            //IO.GetConsoleString("Enter a string");
+            //List<string> list = new List<string> { "One", "Two", "Three" };
+            //IO.GetConsoleMenu(list, "Pick one");
+            //Inheritance.Execute();
+            //CodeSnippets.Execute();
+            //Generics.Execute();
+            ExtensionMethods.Execute();
         }
     }
 }

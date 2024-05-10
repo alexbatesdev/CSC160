@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfApp1.Resources"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="Resources" Height="450" Width="800" Loaded="Window_Loaded">
+    <!-- Don't forgetti to boil your spaghetti, and don't forget to import the mscorlib library -->
+    <Window.Resources>
+        <sys:String x:Key="CompanyName">My Beatles Company</sys:String>
+        <SolidColorBrush x:Key="CompanyColor" Color="Red"/>
+        <x:Array x:Key="Employees" Type="sys:String">
+            <sys:String>John</sys:String>
+            <sys:String>Paul</sys:String>
+            <sys:String>George</sys:String>
+            <sys:String>Ringo</sys:String>
+            <sys:String>Stuart</sys:String>
+            <sys:String>Pete</sys:String>
+        </x:Array>
+    </Window.Resources>
+    <StackPanel Margin="10">
+        <TextBlock 
+            Text="{StaticResource CompanyName}" 
+            HorizontalAlignment="Center" 
+            FontSize="32" 
+            Foreground="{StaticResource CompanyColor}"
+        />
+        <ListBox ItemsSource="{StaticResource Employees}" />
+        <TextBlock Text="{StaticResource AppString}" />
+        <StackPanel>
+            <StackPanel.Resources>
+                <sys:String x:Key="StackPanelResource">Stack Panel Resource WOW</sys:String>
+            </StackPanel.Resources>
+            <TextBlock Text="{StaticResource StackPanelResource}" />
+        </StackPanel>
+        <Button x:Name="StaticResourceButton" Content="Click Me" Width="100" Background="{StaticResource CompanyColor}" />
+        <Button x:Name="DynamicResourceButton" Content="{DynamicResource Mucus}" Height="22" Width="100" Background="{DynamicResource CompanyColor}" />
+        <Button Name="ChangeColorButton" Content="Change Color" Width="100" Click="ChangeColorButton_Click" />
+    </StackPanel>
+</Window>

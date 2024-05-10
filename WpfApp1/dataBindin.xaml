@@ -1,0 +1,77 @@
+﻿<Window x:Class="WpfApp1.dataBindin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="dataBindin" Height="500" Width="400">
+    <StackPanel 
+        Margin="10"
+    >
+        <TextBox 
+            Name="textValue" 
+        />
+        <WrapPanel>
+            <TextBlock 
+                Text="Value: " 
+                FontWeight="Bold" 
+            />
+            <TextBlock 
+                Text="{Binding Path=Text, ElementName=textValue}" 
+            />
+        </WrapPanel>
+        <StackPanel 
+            Margin="0 10"
+        >
+            <TextBlock 
+                Text="Title: " 
+                FontWeight="Bold" 
+            />
+            <TextBox 
+                Name="textTitle" 
+                Width="150" 
+                Text="{Binding Title, UpdateSourceTrigger=Explicit}" 
+            />
+            <Button
+                Name="updateSource"
+                Content="Explicit Update"
+                Click="updateButton" />
+
+            <WrapPanel 
+                Margin="0 10"
+            >
+                <TextBlock Text="Size: " />
+                <TextBox Text="{Binding Width}" Width="50" />
+                <TextBlock Text=" x " />
+                <TextBox Text="{Binding Height}" Width="50" />
+            </WrapPanel>
+
+            <WrapPanel
+                Margin="0 10"
+            >
+                <TextBlock Text="Code Behind Binding: " FontWeight="Bold"/>
+                <TextBlock Name="textData" />
+                
+            </WrapPanel>
+
+            <ListBox 
+                Name="listStudents" 
+                DisplayMemberPath="Name"
+                Margin="0 10"
+            />
+            <Button x:Name="buttonAdd" Content="Add" Click="buttonAdd_Click"/>
+            <Button x:Name="buttonRemove" Content="Remove" Click="buttonRemove_Click"/>
+            <Button x:Name="buttonChange" Content="Change" Click="buttonChange_Click"/>
+            <DataGrid 
+                Name="dataGridStudents" 
+                Width="100"
+            />
+            <ComboBox 
+                Name="comboStudents" 
+                DisplayMemberPath="Name"
+                Margin="0 10"
+            />
+        </StackPanel>
+    </StackPanel>
+</Window>
